@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  backend:
+    container_name: "fergus_backend"
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+      - 1337:1337
+    command: npm run start
+    links:
+      - db
+    volumes:
+      - .:/home/node # mount local dir
+      - node_modules:/home/node/node_modules # mount empty volume to allow pre installed node_modules to survive
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      - WAIT_HOSTS=mongodb:27017
+      - WAIT_HOSTS_TIMEOUT=5000
+      - WAIT_SLEEP_INTERVAL=300
+      - WAIT_HOST_CONNECT_TIMEOUT=30
+  db:
+    container_name: "fergus_db"
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+
+volumes:
+  node_modules:
