@@ -1,0 +1,24 @@
+{
+  "name": "fergus-backend",
+  "version": "1.0.0",
+  "description": "Backend project for fergus service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sudddy/fergus-backend.git"
+  },
+  "keywords": [
+    "Fergus",
+    "Services",
+    "Trader"
+  ],
+  "author": "Sudharsan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sudddy/fergus-backend/issues"
+  },
+  "homepage": "https://github.com/sudddy/fergus-backend#readme"
+}
