@@ -13,7 +13,6 @@ services:
       - db
     volumes:
       - .:/home/node # mount local dir
-      - node_modules:/home/node/node_modules # mount empty volume to allow pre installed node_modules to survive
     depends_on:
       - db
     env_file:
