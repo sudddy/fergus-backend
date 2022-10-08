@@ -26,7 +26,19 @@ const addJob = async function(req, res, next) {
         Jobs.find({ _id: id }, function(err, result) {
         if (err) res.send(500);
   
-        res.send(result[0]);
+        res.send(result);
+      });
+    } catch (e) {
+      next(e);
+    }
+  };
+
+  const getAllJobs = async function(req, res, next) {
+    try {
+        Jobs.find({}, function(err, result) {
+        if (err) res.send(500);
+  
+        res.send(result);
       });
     } catch (e) {
       next(e);
@@ -63,7 +75,9 @@ router.get("/jobs/:id", getJobById);
 
 router.post("/jobs", jsonParser, addJob);
 
-router.put("/jobs/update", jsonParser, updateJob);
+router.put("/jobs", jsonParser, updateJob);
+
+router.get("/jobs", jsonParser,getAllJobs);
 
 
 module.exports = router;
