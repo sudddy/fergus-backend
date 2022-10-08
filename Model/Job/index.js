@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const {Schema} = mongoose
+const {Schema} = mongoose;
 
 const JobSchema = new Schema({
   job_name: String,
@@ -16,6 +16,7 @@ const JobSchema = new Schema({
     type: String,
     enum: ["scheduled", "active", "invoicing", "to priced", "completed"],
   },
+  notes:[String],
   created_on: { type: Date, default: Date.now() },
   updated_on: { type: Date, default: Date.now() },
 });
