@@ -205,8 +205,11 @@ db.once("open", function () {
   Jobs.insertMany(jobdata, function (err, docs) {
     if (err) {
       return console.error(err);
+      process.exit(1);
     } else {
       console.log("Multiple documents inserted to Collection");
+      process.exit(1);
     }
   });
+  
 });
